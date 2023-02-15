@@ -47,6 +47,7 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
 data "archive_file" "function" {
   type = "zip"
   source_file = var.filename
+  output_path = var.filename.zip
 }
 
 resource "aws_lambda_function" "this" {
