@@ -4,6 +4,7 @@ provider "aws" {
 
 module "lambda_function_1" {
   source = "../modules/lambda_function"
+  role = aws_iam_role.lambda_role.arn
 
   function_name = "lambda_function_1"
   
