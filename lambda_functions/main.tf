@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "lambda_function_1" {
-  source = "./modules/lambda_function"
+  source = "../modules/lambda_function"
 
   function_name = "lambda_function_1"
   
