@@ -2,9 +2,7 @@ variable "function_name" {
   description = "The name of the AWS Lambda function."
 }
 
-variable "role_arn" {
-  description = "The ARN of the IAM role for the AWS Lambda function."
-}
+
 
 variable "handler" {
   description = "The name of the Python function that AWS Lambda calls to start execution."
