@@ -1,7 +1,8 @@
 provider "aws" {
   region = "us-east-1"
 }
-source_code_path = ../lambda_functions/lambda_function_1.py
+source_code_path = "../lambda_functions/lambda_function_1.py"
+
 module "lambda_function_1" {
   filename = var.filename
   source = "../modules/lambda_function"
