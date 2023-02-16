@@ -50,14 +50,12 @@ data "archive_file" "function" {
   output_path = "${path.module}/lambda_function.zip"
 }
 
-resource "aws_lambda_function" "lambda_function" {
+resource "aws_lambda_function" "this" {
+  filename      = var.filename
   function_name = var.function_name
-  role = aws_iam_role.lambda_role.arn
-  handler = var.handler
-  runtime = var.runtime
-  memory_size = var.memory_size
-  timeout = var.timeout
-
-  filename         = data.archive_file.function.output_path
-  source_code_hash = data.archive_file.function.output_base64sha256
+  role          = var.role_arn
+  handler       = var.handler
+  runtime       = var.runtime
+  memory_size   = var.memory_size
+  timeout       = var.timeout
 }
