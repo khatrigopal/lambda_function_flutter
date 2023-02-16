@@ -3,6 +3,7 @@ provider "aws" {
 }
 
 module "lambda_function_1" {
+  filename = var.filename
   source = "../modules/lambda_function"
   function_name = "lambda_function_1"
   handler = "lambda_function_1.handler"
