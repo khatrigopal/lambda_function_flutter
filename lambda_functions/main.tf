@@ -11,7 +11,7 @@ data "archive_file" "lambda_function_1" {
 }
 
 module "lambda_function_1" {
-  source         = "./modules/lambda_function"
+  source         = "../modules/lambda_function"
   filename       = data.archive_file.lambda_function_1.output_path
   function_name  = "lambda_function_1"
   role_arn       = "arn:aws:iam::123456789012:role/lambda-role"
