@@ -2,7 +2,10 @@ variable "function_name" {
   description = "The name of the AWS Lambda function."
 }
 
-
+variable "source_code_path" {
+  type        = string
+  description = "Path to the directory containing the Lambda function code"
+}
 
 variable "handler" {
   description = "The name of the Python function that AWS Lambda calls to start execution."
