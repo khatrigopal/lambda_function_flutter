@@ -8,7 +8,7 @@ module "lambda_function_1" {
   source = "../modules/lambda_function"
   function_name = "lambda_function_1"
   handler = "lambda_function_1.handler"
-  source_dir = "./lambda_functions/lambda_function_1/lambda_function_1.py"
+  source_code_path = "./lambda_functions/lambda_function_1/lambda_function_1.py"
   runtime = "python3.8"
   memory_size = 256
   timeout = 10
