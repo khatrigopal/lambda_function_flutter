@@ -6,6 +6,7 @@ variable "function_name" {
 variable "source_code_path" {
   type        = string
   description = "Path to the directory containing the Lambda function code"
+  default = ""
 }
 
 variable "handler" {
