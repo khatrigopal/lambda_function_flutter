@@ -44,13 +44,13 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
  policy_arn  = aws_iam_policy.iam_policy_for_lambda.arn
 }
 
-data "archive_file" "function" {
+data "archive_file" "lambda_function_zip" {
   type = "zip"
-  source_file = var.filename
-  output_path = lambda_function_1.zip
+  source_file = var.source_code_path
+  output_path = "${path.module}/lambda_function.zip"
 }
 
-resource "aws_lambda_function" "this" {
+resource "aws_lambda_function" "lambda_function" {
   function_name = var.function_name
   role = aws_iam_role.lambda_role.arn
   handler = var.handler
@@ -58,6 +58,6 @@ resource "aws_lambda_function" "this" {
   memory_size = var.memory_size
   timeout = var.timeout
 
-  filename = data.archive_file.function.output_path
-  source_code_hash = data.archive_file.function.output_base64sha256
+  filename         = data.archive_file.lambda_function_zip.output_path
+  source_code_hash = data.archive_file.lambda_function_zip.output_base64sha256
 }
